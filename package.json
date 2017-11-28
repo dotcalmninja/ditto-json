@@ -1,0 +1,10 @@
+{
+  "name": "ditto-json",
+  "version": "1.0.0",
+  "description": "Ditto JSON Middleware Parser",
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": "",
+  "license": "GPL-3.0"
+}
