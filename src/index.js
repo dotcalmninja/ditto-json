@@ -1,23 +1,22 @@
 /*
  * Ditto JSON Middleware
  */
+module.exports = DittoJson;
 
-const fs = require('fs');
+function DittoJson() {};
 
-module.exports = DittoJSON;
+DittoJson.prototype.run = function(files, Ditto, done) {
+  setImmediate(done);
 
-function DittoJSON() {
-  return function(files, Ditto, done) {  
-    var toProcess = Object.keys(files).length;
-    
-    for (i in files) {
-      var
-        file = files[i],
-        json = JSON.parse(files[i].content);
+  Object.keys(files).forEach(function(filepath) {
+    var file = files[filepath],
+      json = JSON.parse(file.content);
 
-      file = Object.assign(file, json);
+    if (json) {
+      if (json.template) file.template = json.template;
+      if (json.title) file.title = json.title;
+
+      file.content = json;
     }
-
-    done(files);
-  };
+  });
 };
