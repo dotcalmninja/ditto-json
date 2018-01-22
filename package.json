@@ -1,12 +1,11 @@
 {
   "name": "ditt0-json",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Ditto JSON Middleware Parser",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": "Pim Brouwers",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pimbrouwers/ditto-json.git"
