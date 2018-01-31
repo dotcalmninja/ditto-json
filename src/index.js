@@ -12,12 +12,14 @@ function DittoJson() {};
  * @param {Function} done 
  */
 DittoJson.prototype.run = function(files, Ditto, done) {
+  let self = this;
+
   setImmediate(done);
 
   files.forEach(function(file){
     if(file.content != 'undefined' && file.content != null)
     {
-      let parsed = this.parseJson(file.content);
+      let parsed = self.parseJson(file.content);
 
       if(parsed != 'undefined' && parsed != null)
       {
