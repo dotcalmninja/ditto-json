@@ -1,5 +1,5 @@
 # ditto-json
-Ditto JSON - Ditto JSON Middleware Parser
+Ditto JSON - JSON Middleware Parser for [Ditto](https://github.com/pimbrouwers/ditto)
 
 ## Getting Started
 
