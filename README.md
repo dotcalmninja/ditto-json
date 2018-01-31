@@ -8,7 +8,7 @@ Ditto JSON - Ditto JSON Middleware Parser
 ```javascript
 const
   Ditto = require('ditt0'),
-  DittoJson = require('ditt0-json')l
+  DittoJson = require('ditt0-json');
 
 Ditto()
   .source('./src') //default
