@@ -5,22 +5,41 @@ module.exports = DittoJson;
 
 function DittoJson() {};
 
+/**
+ * Ditto JSON parsing middleware
+ * @param {Array.<Object.<DittoFile>>} files 
+ * @param {Object.<Ditto>} Ditto 
+ * @param {Function} done 
+ */
 DittoJson.prototype.run = function(files, Ditto, done) {
-  console.info("> JSON Parsed");
-
   setImmediate(done);
 
-  Object.keys(files).forEach(function(filepath) {
-    let
-      file = files[filepath],
-      json = JSON.parse(file.content);
+  files.forEach(function(file){
+    if(file.content != 'undefined' && file.content != null)
+    {
+      let parsed = this.parseJson(file.content);
 
-    if (typeof json !== 'undefined' && json !== null) {
-      //elevate the "template" and "title" properties
-      if (json.template) file.template = json.template;
-      if (json.title) file.title = json.title;
-
-      file.content = json;
-    }
+      if(parsed != 'undefined' && parsed != null)
+      {
+        file.content = parsed;
+      }
+    }		
   });
+};
+
+/**
+ * Safely parse node file buffer into JSON
+ * @param {Array} fileBuffer 
+ * @returns {Object} parsed json
+ */
+DittoJson.prototype.parseJson = function(fileBuffer){
+  let parsed;
+
+  try {
+    parsed = JSON.parse(fileBuffer);
+  } catch (e) {
+    parsed = null;
+  }
+  
+  return parsed;
 };
