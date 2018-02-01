@@ -12,6 +12,8 @@ function DittoJson() {};
  * @param {Function} done 
  */
 DittoJson.prototype.run = function(files, Ditto, done) {
+  console.info("*************\n*** ditt0-json ***\n*************");
+
   let self = this;
 
   setImmediate(done);
