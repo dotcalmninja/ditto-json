@@ -1,6 +1,6 @@
 {
   "name": "ditt0-json",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Ditto JSON Middleware Parser",
   "main": "index.js",
 	"scripts": {

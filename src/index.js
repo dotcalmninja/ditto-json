@@ -12,23 +12,19 @@ function DittoJson() {};
  * @param {Function} done 
  */
 DittoJson.prototype.run = function(files, Ditto, done) {
-  console.info("*************\n*** ditt0-json ***\n*************");
-
   let self = this;
 
-  setImmediate(done);
-
-  files.forEach(function(file){
-    if(file.content != 'undefined' && file.content != null)
-    {
+  files.forEach(function(file) {
+    if (file.content != 'undefined' && file.content != null) {
       let parsed = self.parseJson(file.content);
 
-      if(parsed != 'undefined' && parsed != null)
-      {
+      if (parsed != 'undefined' && parsed != null) {
         file.content = parsed;
       }
-    }		
+    }
   });
+
+  done(null, files);
 };
 
 /**
@@ -36,7 +32,7 @@ DittoJson.prototype.run = function(files, Ditto, done) {
  * @param {Array} fileBuffer 
  * @returns {Object} parsed json
  */
-DittoJson.prototype.parseJson = function(fileBuffer){
+DittoJson.prototype.parseJson = function(fileBuffer) {
   let parsed;
 
   try {
@@ -44,6 +40,6 @@ DittoJson.prototype.parseJson = function(fileBuffer){
   } catch (e) {
     parsed = null;
   }
-  
+
   return parsed;
 };
