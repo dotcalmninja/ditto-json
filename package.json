@@ -7,6 +7,7 @@
 		"test": "jasmine"
 	},
 	"devDependencies": {
+    "ditt0":"^1.0.0",
 		"jasmine": "^2.8.0"
 	},
   "author": "Pim Brouwers",
